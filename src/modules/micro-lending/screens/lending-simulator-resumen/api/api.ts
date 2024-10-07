@@ -1,7 +1,8 @@
 import {
   PostLendingConfirmResponse,
   PostLendingSimulatorConfirm,
-} from '../../../../../bit/lending/lending-simulator/lending-simulator-resumen/types';
+} from '@personal-pay/design-system.flow.lending';
+
 import {post} from '../../../../../config';
 
 export const postLendingConfirm = async ({

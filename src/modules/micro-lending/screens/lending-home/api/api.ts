@@ -10,7 +10,7 @@ import {
   LoansAlerts,
   LoansByID,
   NextInstallmentResponse,
-} from '../../../../../bit/lending';
+} from '@personal-pay/design-system.flow.lending';
 
 export const getBalanceLending = (): Promise<
   AxiosResponse<BalanceLoanResponse | LoanResponseError>

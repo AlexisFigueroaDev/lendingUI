@@ -12,9 +12,6 @@ import {
 import {BackdropLening, NavBarLending} from '../../components';
 import {wordingSimulatorBackdrop} from '../../wording/constants';
 
-// import {BackdropLening, NavBarLending} from '@modules/micro-lending/components';
-// import {wordingSimulatorBackdrop} from '@modules/micro-lending/wording/constants';
-
 export const LendingSimulator: FC = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<NavigationListSimulator>>();

@@ -1,13 +1,12 @@
 import {AxiosResponse} from 'axios';
-import {
-  PostLendingOnboardingProp,
-  UpdateOnboardingRes,
-} from '../../../../../bit/lending/lending-onboarding/types';
+
 import {get, patch} from '../../../../../config';
 import {
   LoanResponseError,
   NextInstallmentResponse,
-} from '../../../../../bit/lending';
+  PostLendingOnboardingProp,
+  UpdateOnboardingRes,
+} from '@personal-pay/design-system.flow.lending';
 
 export const getLendingOnboarding = (): Promise<AxiosResponse<unknown>> =>
   get(

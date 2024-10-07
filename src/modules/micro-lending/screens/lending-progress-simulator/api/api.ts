@@ -1,7 +1,7 @@
 import {
   LendingSimulationData,
   PostLendingSimulatorConfig,
-} from '../../../../../bit/lending/lending-simulator';
+} from '@personal-pay/design-system.flow.lending';
 import {post} from '../../../../../config';
 
 export const postLendingSimulator = async ({

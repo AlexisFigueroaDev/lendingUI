@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable radix */
 import React, {FC, useEffect} from 'react';
 
@@ -42,7 +43,6 @@ export const LendingProgressSimulator: FC = () => {
         },
       },
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mutate]);
 
   return (

@@ -18,10 +18,14 @@ import {
 import {
   NavigationListHomeLending,
   NavigationListSimulator,
-  useLendingHomeHook,
-  LendingHomeTemplate,
+  // useLendingHomeHook,
+  // LendingHomeTemplate,
   LoanResponse,
 } from '@personal-pay/design-system.flow.lending';
+import {
+  LendingHomeTemplate,
+  useLendingHomeHook,
+} from '../../../../../bit/lending-home';
 
 export const LendingHome: FC = () => {
   const navigation =
@@ -32,18 +36,14 @@ export const LendingHome: FC = () => {
       RouteProp<NavigationListSimulator, 'MICRO_LENDING_SIMULATOR_ROUTE'>
     >();
 
-  const {
-    dataBalance,
-    dataListCard,
-    installments,
-    dataLoans,
-    HasLoading,
-    // hasError,
-  } = useLendingHomeHook({
-    getBalance: getBalanceLending,
-    getNextInstallment: getNextInstallmentLending,
-    getLoans: getLoans,
-  });
+  const {dataBalance, dataListCard, installments, dataLoans, HasLoading} =
+    useLendingHomeHook({
+      getBalance: getBalanceLending,
+      getNextInstallment: getNextInstallmentLending,
+      getLoans: getLoans,
+    });
+
+  console.log('dataListCard', dataListCard);
 
   const WordingHomeLending = {
     titleAmountCard: 'Disponible',

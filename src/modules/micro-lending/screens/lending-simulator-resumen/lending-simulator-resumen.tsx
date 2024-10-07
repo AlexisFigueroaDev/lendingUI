@@ -5,7 +5,6 @@ import {colors} from '@personal-pay/design-system.theme.foundations';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {Box, StatusBar} from 'native-base';
 
-import {post} from '../../../../config/axios-config';
 import {
   LendingResumenTemplate,
   LendingSimulationData,
@@ -21,6 +20,10 @@ import {wordingSimulatorBackdrop} from '../../wording/constants';
 import {useBackHandler} from '@react-native-community/hooks';
 import {postLendingSimulator} from '../lending-progress-simulator/api/api';
 import {postLendingConfirm} from './api/api';
+import {useLendingOnboardingHook} from '../../../../../bit/lending-onboarding';
+import {useLendingOnboardingQuery} from '../../../../../bit/lending-onboarding/lending-onboarding-hook';
+import {getLendingOnboarding} from '../lending-onboarding/api/api';
+// import {useLendingSimulatorResumen} from '../../../../../bit/lending-simulator-resumen';
 
 export const LendingSimulatorResumen: FC = () => {
   const route =
@@ -44,10 +47,12 @@ export const LendingSimulatorResumen: FC = () => {
     firstExpirationDates: route.params.firstExpirationDates,
     tooglesPlans: route.params.data?.tooglesPlans,
     mutateFn: mutate,
-    post,
     amount: route.params.amount,
     productId: route.params.productId,
   });
+
+  const {data: dataOnboarding} =
+    useLendingOnboardingQuery(getLendingOnboarding);
 
   const {
     isLoading: loadingAcceditation,
@@ -125,7 +130,14 @@ export const LendingSimulatorResumen: FC = () => {
         secondaryButton={{
           children: data?.wording.secondaryButton || '',
           isLoading: false,
-          onPress: () => navigation.replace('MICRO_LENDING_ONBOARDING_ROUTE'),
+          onPress: () =>
+            navigation.replace('MICRO_LENDING_SIMULATOR_ROUTE', {
+              firstExpirationDates: dataOnboarding?.data
+                .firstExpirationDates || [{}],
+              minAmount: dataOnboarding?.data.minAmount || '0',
+              productId: dataOnboarding?.data.idProducts || '0',
+              availableAmount: dataOnboarding?.data.availableAmount || '0',
+            }),
         }}
         detailsCheckbox={{
           title: data?.wording.titleCheckbox || '',

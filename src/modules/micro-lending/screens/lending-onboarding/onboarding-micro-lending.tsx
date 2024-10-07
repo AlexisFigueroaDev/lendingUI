@@ -5,7 +5,7 @@ import {Flex, StatusBar} from 'native-base';
 
 import {
   NavigationList,
-  useLendingOnboardingHook,
+  // useLendingOnboardingHook,
 } from '@personal-pay/design-system.flow.lending';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Loader} from '@personal-pay/design-system.ui.loader';
@@ -16,6 +16,7 @@ import {
   postLendingOnboarding,
   getNextInstallmentLending,
 } from './api/api';
+import {useLendingOnboardingHook} from '../../../../../bit/lending-onboarding';
 
 export const OnboardingMicroLending: FC = () => {
   const navigation =
