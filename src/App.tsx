@@ -1,23 +1,16 @@
 import React from 'react';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
-import {extendTheme, NativeBaseProvider} from 'native-base';
-import {fontConfig, fonts} from './../fonts';
+import {NativeBaseProvider} from 'native-base';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {NavigatorRoot} from './navigation';
 import {customTheme} from './theme';
 
-// export const customTheme = extendTheme({
-//   colors,
-//   components,
-//   fontConfig,
-//   fonts,
-//   sizes: scaleSizes,
-// });
-
-// export type CustomThemeType = typeof customTheme;
-
 const queryClient = new QueryClient();
+
+if (__DEV__) {
+  require('./config/reactotronConfig');
+}
 
 export const App = () => {
   return (
